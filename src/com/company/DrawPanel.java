@@ -1,9 +1,6 @@
 package com.company;
 
-import com.company.line_drawers.BresenhamLineDrawer;
-import com.company.line_drawers.DDALineDrawer;
-import com.company.line_drawers.GraphicsLineDrawer;
-import com.company.line_drawers.WuLineDrawer;
+import com.company.line_drawers.*;
 import com.company.utils.DrawUtils;
 
 import javax.swing.*;
@@ -24,7 +21,7 @@ public class DrawPanel extends JPanel implements MouseMotionListener {
         BufferedImage bi = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
 
         Graphics bi_g = bi.createGraphics();
-        bi_g.setColor(Color.WHITE);
+        bi_g.setColor(Color.MAGENTA);
         bi_g.fillRect(0, 0, getWidth(), getHeight());
         bi_g.setColor(Color.BLACK);
         PixelDrawer pd = new GraphicsPixelDrawer(bi_g);
@@ -37,7 +34,7 @@ public class DrawPanel extends JPanel implements MouseMotionListener {
     }
 
     private void drawAll(LineDrawer ld){
-        DrawUtils.drawSnowflake(ld, getWidth()/2, getHeight()/2, 50, 32);
+        DrawUtils.drawSnowflake(ld, 200, 400, 50, 32);
         ld.drawLine(getWidth()/2, getHeight()/2, position.x, position.y);
     }
 
