@@ -20,7 +20,7 @@ public class BresenhamLineDrawer implements LineDrawer {
 
 
 
-        //pd.drawPixel(x1, y1, Color.red);
+        pd.drawPixel(x1, y1, Color.red);
 
         if (Math.abs(dx) > Math.abs(dy)){
             int error = Math.abs(dx) / 2;

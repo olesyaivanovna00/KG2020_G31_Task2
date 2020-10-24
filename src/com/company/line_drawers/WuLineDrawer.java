@@ -20,10 +20,13 @@ import java.awt.*;
 
         @Override
         public void drawLine(int x1, int y1, int x2, int y2) {
+
+
+
             if (Math.abs(y1 - y2) > Math.abs(x1 - x2)){
                 if (y1 > y2){
-                    int tmp = x1; x1 = x2; x2 = tmp;
-                    tmp = y1; y1 = y2; y2 = tmp;
+                    int tmp = y1; y1 = y2; y2 = tmp;
+                    tmp = x1; x1 = x2; x2 = tmp;
                 }
 
                 double dx = x2 - x1;
@@ -31,9 +34,9 @@ import java.awt.*;
                 double gradient = dx / dy;
 
 
-                double x = x1 + gradient;
+                double x = x1;
 
-                for (int y = y1 + 1; y < y2 ; y++) {
+                for (int y = y1; y <= y2 ; y++) {
                     drawPixel((int)(x) + 1, y, fractionalPart(x));
                     drawPixel((int)(x), y, inverseFraction(x));
                     x += gradient;
@@ -49,9 +52,9 @@ import java.awt.*;
                 double dy = y2 - y1;
                 double gradient = dy / dx;
 
-                double y = y1 + gradient;
+                double y = y1;
 
-                for (int x = x1 + 1; x < x2; x++) {
+                for (int x = x1; x <= x2; x++) {
                     drawPixel(x, (int)(y) + 1, fractionalPart(y));
                     drawPixel(x, (int)(y), inverseFraction(y));
                     y += gradient;
